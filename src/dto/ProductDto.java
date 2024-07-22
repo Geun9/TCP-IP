@@ -1,11 +1,13 @@
 package dto;
 
 import java.io.Serializable;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Getter
 @NoArgsConstructor
+@AllArgsConstructor
 public class ProductDto implements Serializable {
     private static long cnt = 1;
     private long id;
@@ -21,12 +23,12 @@ public class ProductDto implements Serializable {
         this.stock = stock;
     }
 
-    public static ProductDto updatedProduct(ProductDto product, String name, int price, int stock) {
-        product.name = name;
-        product.price = price;
-        product.stock = stock;
+    public ProductDto updatedProduct(ProductDto updateProduct) {
+        this.name = updateProduct.name;
+        this.price = updateProduct.price;
+        this.stock = updateProduct.stock;
 
-        return product;
+        return this;
     }
 
     @Override

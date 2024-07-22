@@ -49,9 +49,10 @@ public class ServerService {
         String updatedProductName = data.get("name").toString();
         int updatedProductPrice = Integer.parseInt(data.get("price").toString());
         int updatedProductStock = Integer.parseInt(data.get("stock").toString());
-        ProductDto updateProduct = findById(productId);
+        ProductDto product = findById(productId);
+        ProductDto updateProduct = new ProductDto(productId, updatedProductName, updatedProductPrice, updatedProductStock);
 
-        updateProduct.updatedProduct(updateProduct, updatedProductName, updatedProductPrice, updatedProductStock);
+        product.updatedProduct(updateProduct);
     }
 
     public synchronized void deleteProduct(JSONObject data) {

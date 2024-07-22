@@ -17,4 +17,5 @@
 - [X] ProductDto 익명 메서드 제거
 - [ ] Serializable시, uid 작성
 - [X] 유효성 검사 클래스 별도로 작성
+- [X] ProductDto updateProduct 파라미터 객체로 변경
 - [ ] `ProductClient`, `ProductServer` 에서 기능 부분 클래스로 빼기
