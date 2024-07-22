@@ -1,3 +1,5 @@
+package common;
+
 public enum MenuText {
     HEADER("\n[상품 목록]"),
     BORDER_LINE("----------------------------------------------------"),

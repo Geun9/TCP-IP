@@ -14,8 +14,8 @@ import java.util.concurrent.Executors;
 import service.ServerService;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.ParseException;
-import util.Casting;
-import DataHandler;
+import common.Casting;
+import common.handler.DataHandler;
 
 /**
  * Thread vs Runnable

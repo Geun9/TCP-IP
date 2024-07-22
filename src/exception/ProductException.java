@@ -1,6 +1,6 @@
 package exception;
 
-import util.ErrorCode;
+import common.ErrorCode;
 
 public class ProductException extends RuntimeException{
     private final ErrorCode error;

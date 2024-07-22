@@ -1,25 +1,20 @@
 package service;
 
-import static util.ErrorCode.*;
-
+import common.ValidCheck;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.List;
-import exception.ProductException;
-import util.MenuDataHandler;
-import MenuText;
+import common.handler.MenuDataHandler;
+import common.MenuText;
 
 
 public class ClientService {
-    private static final String MENU_NUMBER = "^[1-4]";
-    private static final String NAME = "^[a-zA-Z0-9ㄱ-힣]{1,10}";
-    private static final String PRICE = "^\\d{0,6}$";
-    private static final String STOCK = "^\\d{0,3}$";
     private static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     private static List<String> productList;
     private static int menuNum;
     private static MenuDataHandler menuDataHandler;
+    private static ValidCheck validCheck = new ValidCheck();
 
     public ClientService() {
         this.menuDataHandler = new MenuDataHandler();
@@ -59,9 +54,10 @@ public class ClientService {
      */
     public void selectMenuOption() throws IOException {
         System.out.print(MenuText.SELECT.getText());
-        String inputMenu = br.readLine();
+        String inputMenu = br.readLine().trim();
 
-        menuNum = validateMenuNum(inputMenu);
+        validCheck.isMenuValid(inputMenu);
+        menuNum = Integer.parseInt(inputMenu);
         menuDataHandler.setMenuOption(menuNum);
 
         switch (menuNum) {
@@ -79,16 +75,18 @@ public class ClientService {
     public void createProduct() throws IOException {
         System.out.println(MenuText.MENU1.getText());
         System.out.print("상품 이름: ");
-        String inputName = br.readLine();
-        String productName = validateProductName(inputName);
+        String productName = br.readLine();
+        validCheck.isProductNameValid(productName);
 
         System.out.print("상품 가격: ");
-        String inputPrice = br.readLine();
-        int productPrice = validateProductPrice(inputPrice);
+        String inputPrice = br.readLine().trim();
+        validCheck.isProductPriceValid(inputPrice);
+        int productPrice = Integer.parseInt(inputPrice);
 
         System.out.print("상품 재고: ");
-        String inputStock = br.readLine();
-        int productStock = validateProductStock(inputStock);
+        String inputStock = br.readLine().trim();
+        validCheck.isProductStockValid(inputStock);
+        int productStock = Integer.parseInt(inputStock);
 
         menuDataHandler.setName(productName);
         menuDataHandler.setPrice(productPrice);
@@ -103,19 +101,22 @@ public class ClientService {
         System.out.println(MenuText.MENU2.getText());
 
         System.out.print("상품 번호: ");
-        String inputId = br.readLine();
-        long productId = validateProductId(inputId);
+        String inputId = br.readLine().trim();
+        validCheck.isProductIdValid(inputId);
+        long productId = Long.parseLong(inputId);
 
         System.out.print("이름 변경: ");
         String updatedProductName = br.readLine();
 
         System.out.print("가격 변경: ");
-        String inputPrice = br.readLine();
-        int updatedProductPrice = validateProductPrice(inputPrice);
+        String inputPrice = br.readLine().trim();
+        validCheck.isProductPriceValid(inputPrice);
+        int updatedProductPrice = Integer.parseInt(inputPrice);
 
         System.out.print("재고 변경: ");
-        String inputStock = br.readLine();
-        int updatedProductStock = validateProductStock(inputStock);
+        String inputStock = br.readLine().trim();
+        validCheck.isProductStockValid(inputStock);
+        int updatedProductStock = Integer.parseInt(inputStock);
 
         menuDataHandler.setId(productId);
         menuDataHandler.setName(updatedProductName);
@@ -130,9 +131,10 @@ public class ClientService {
     public void deleteProduct() throws IOException {
         System.out.println(MenuText.MENU3.getText());
         System.out.print("상품 번호: ");
-        String inputId = br.readLine();
+        String inputId = br.readLine().trim();
 
-        long productId = validateProductId(inputId);
+        validCheck.isProductIdValid(inputId);
+        long productId = Long.parseLong(inputId);
 
         menuDataHandler.setId(productId);
     }
@@ -144,76 +146,6 @@ public class ClientService {
         System.out.println(MenuText.MENU4.getText());
     }
 
-    /**
-     * 메뉴 번호 유효성 검사
-     * 메뉴 번호: 1 ~ 4
-     */
-    public int validateMenuNum(String inputMenu) {
-        try {
-            if (inputMenu.matches(MENU_NUMBER)) {
-                return Integer.parseInt(inputMenu);
-            } else {
-                throw new ProductException(INVALID_MENU_OPTION);
-            }
-        } catch (NumberFormatException e) {
-            throw new ProductException(INVALID_MENU_OPTION);
-        }
-    }
 
-    /**
-     * 상품 이름 유효성 검사
-     * [0~9, a~z, A~Z, ㄱ~힣] 1~10
-     */
-    public String validateProductName(String inputName) {
-        if (inputName.matches(NAME)) {
-            return inputName;
-        } else {
-            throw new ProductException(INVALID_PRODUCT_NAME);
-        }
-    }
-
-    /**
-     * 상품 Id 유효성 검사
-     */
-    public long validateProductId(String inputId) {
-        try {
-            long productId = Long.parseLong(inputId);
-            return productId;
-        } catch (NumberFormatException e) {
-            throw new ProductException(INVALID_PRODUCT_ID);
-        }
-    }
-
-    /**
-     * 상품 가격 유효성 검사
-     * 상품 가격: 0 ~ 999,999
-     */
-    public int validateProductPrice(String inputPrice) {
-        try {
-            if (inputPrice.matches(PRICE)) {
-                return Integer.parseInt(inputPrice);
-            } else {
-                throw new ProductException(INVALID_PRODUCT_PRICE);
-            }
-        } catch (NumberFormatException e) {
-            throw new ProductException(INVALID_PRODUCT_PRICE);
-        }
-    }
-
-    /**
-     * 상품 재고 유효성 검사
-     * 상품 재고: 0 ~ 999
-     */
-    public int validateProductStock(String inputStock) {
-        try {
-            if (inputStock.matches(STOCK)) {
-                return Integer.parseInt(inputStock);
-            } else {
-                throw new ProductException(INVALID_PRODUCT_STOCK);
-            }
-        } catch (NumberFormatException e) {
-            throw new ProductException(INVALID_PRODUCT_STOCK);
-        }
-    }
 
 }

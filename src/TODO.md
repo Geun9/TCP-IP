@@ -16,5 +16,5 @@
 - [X] Server 처리 결과 `status` Client로 보내기
 - [ ] id값을 익명 메서드 말고 랜덤값이나 다른 값으로
 - [ ] Serializable시, uid 작성
-- [ ] 유효성 검사 util 패키지에 작성
+- [X] 유효성 검사 클래스 별도로 작성
 - [ ] `ProductClient`, `ProductServer` 에서 기능 부분 클래스로 빼기

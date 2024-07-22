@@ -1,6 +1,6 @@
 package product;
 
-import static util.Casting.parseProductList;
+import static common.Casting.parseProductList;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -12,7 +12,7 @@ import java.util.List;
 import exception.ProductException;
 import service.ClientService;
 import org.json.simple.parser.ParseException;
-import util.MenuDataHandler;
+import common.handler.MenuDataHandler;
 
 public class ProductClient {
 

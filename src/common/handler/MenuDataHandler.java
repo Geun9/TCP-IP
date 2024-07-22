@@ -1,4 +1,4 @@
-package util;
+package common.handler;
 
 import java.io.Serializable;
 import org.json.simple.JSONObject;
