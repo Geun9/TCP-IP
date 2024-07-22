@@ -14,7 +14,7 @@
 - [ ] ~~`ClientService` 클래스 `menuDataHandler.set()` 메서드화 (Map 이용)~~
 - [X] 정규 표현식 적용 (메뉴 번호, 상품 가격, 상품 재고 등)
 - [X] Server 처리 결과 `status` Client로 보내기
-- [ ] id값을 익명 메서드 말고 랜덤값이나 다른 값으로
+- [X] ProductDto 익명 메서드 제거
 - [ ] Serializable시, uid 작성
 - [X] 유효성 검사 클래스 별도로 작성
 - [ ] `ProductClient`, `ProductServer` 에서 기능 부분 클래스로 빼기
