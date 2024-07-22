@@ -1,9 +1,9 @@
-package jieun.service;
+package service;
 
 import java.util.ArrayList;
 import java.util.List;
 import org.json.simple.JSONObject;
-import jieun.dto.ProductDto;
+import dto.ProductDto;
 
 public class ServerService {
 

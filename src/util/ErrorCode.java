@@ -1,4 +1,4 @@
-package jieun.util;
+package util;
 
 public enum ErrorCode {
     INVALID_MENU_OPTION(1001, "❗️잘못된 메뉴 번호입니다. 다시 입력해주세요.❗️"),

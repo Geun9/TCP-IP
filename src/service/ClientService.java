@@ -1,14 +1,14 @@
-package jieun.service;
+package service;
 
-import static jieun.util.ErrorCode.*;
+import static util.ErrorCode.*;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.List;
-import jieun.exception.ProductException;
-import jieun.util.MenuDataHandler;
-import jieun.util.MenuText;
+import exception.ProductException;
+import util.MenuDataHandler;
+import MenuText;
 
 
 public class ClientService {

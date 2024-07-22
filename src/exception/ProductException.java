@@ -1,6 +1,6 @@
-package jieun.exception;
+package exception;
 
-import jieun.util.ErrorCode;
+import util.ErrorCode;
 
 public class ProductException extends RuntimeException{
     private final ErrorCode error;

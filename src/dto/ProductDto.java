@@ -1,4 +1,4 @@
-package jieun.dto;
+package dto;
 
 import java.io.Serializable;
 

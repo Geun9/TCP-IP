@@ -1,6 +1,6 @@
-package jieun.product;
+package product;
 
-import static jieun.util.Casting.parseProductList;
+import static util.Casting.parseProductList;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -9,10 +9,10 @@ import java.io.PrintWriter;
 import java.net.ConnectException;
 import java.net.Socket;
 import java.util.List;
-import jieun.exception.ProductException;
-import jieun.service.ClientService;
+import exception.ProductException;
+import service.ClientService;
 import org.json.simple.parser.ParseException;
-import jieun.util.MenuDataHandler;
+import util.MenuDataHandler;
 
 public class ProductClient {
 

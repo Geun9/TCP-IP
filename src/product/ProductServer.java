@@ -1,4 +1,4 @@
-package jieun.product;
+package product;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -11,11 +11,11 @@ import java.util.Date;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import jieun.service.ServerService;
+import service.ServerService;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.ParseException;
-import jieun.util.Casting;
-import jieun.util.DataHandler;
+import util.Casting;
+import DataHandler;
 
 /**
  * Thread vs Runnable

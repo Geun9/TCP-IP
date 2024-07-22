@@ -1,4 +1,4 @@
-package jieun.util;
+package util;
 
 import java.io.Serializable;
 import java.util.ArrayList;
